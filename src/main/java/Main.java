@@ -14,13 +14,13 @@ public class Main {
             // Perform the acceptance test scenario
             System.out.println("Performing transactions...");
             account.deposit(1000, LocalDate.of(2012, 1, 10));
-            System.out.println("✓ Deposited 1000 on 10-01-2012");
+            System.out.println("Deposited 1000 on 10-01-2012");
             
             account.deposit(2000, LocalDate.of(2012, 1, 13));
-            System.out.println("✓ Deposited 2000 on 13-01-2012");
+            System.out.println("Deposited 2000 on 13-01-2012");
             
             account.withdraw(500, LocalDate.of(2012, 1, 14));
-            System.out.println("✓ Withdrew 500 on 14-01-2012");
+            System.out.println("Withdrew 500 on 14-01-2012");
             
             System.out.println("\nCurrent balance: " + account.getBalance());
             
@@ -43,9 +43,9 @@ public class Main {
         System.out.println("\n1. Testing negative deposit:");
         try {
             testAccount.deposit(-100, LocalDate.now());
-            System.out.println("   ✗ Should have thrown exception!");
+            System.out.println("Should have thrown exception!");
         } catch (IllegalArgumentException e) {
-            System.out.println("   ✓ Correctly rejected: " + e.getMessage());
+            System.out.println("Correctly rejected: " + e.getMessage());
         }
         
         // Test 2: Insufficient funds
@@ -53,27 +53,27 @@ public class Main {
         try {
             testAccount.deposit(100, LocalDate.now());
             testAccount.withdraw(200, LocalDate.now());
-            System.out.println("   ✗ Should have thrown exception!");
+            System.out.println("Should have thrown exception!");
         } catch (IllegalStateException e) {
-            System.out.println("   ✓ Correctly rejected: " + e.getMessage());
+            System.out.println("Correctly rejected: " + e.getMessage());
         }
         
         // Test 3: Null date
         System.out.println("\n3. Testing null date:");
         try {
             testAccount.deposit(100, null);
-            System.out.println("   ✗ Should have thrown exception!");
+            System.out.println("Should have thrown exception!");
         } catch (IllegalArgumentException e) {
-            System.out.println("   ✓ Correctly rejected: " + e.getMessage());
+            System.out.println("Correctly rejected: " + e.getMessage());
         }
         
         // Test 4: Zero amount
         System.out.println("\n4. Testing zero amount deposit:");
         try {
             testAccount.deposit(0, LocalDate.now());
-            System.out.println("   ✗ Should have thrown exception!");
+            System.out.println("Should have thrown exception!");
         } catch (IllegalArgumentException e) {
-            System.out.println("   ✓ Correctly rejected: " + e.getMessage());
+            System.out.println("Correctly rejected: " + e.getMessage());
         }
     }
 }
