@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class AccountTest {
     private Account account;
-    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
     
     @BeforeEach
     void setUp() {
@@ -183,5 +181,11 @@ class AccountTest {
         } finally {
             System.setOut(originalOut);
         }
+    }
+    
+    @Test
+    void testAccountImplementsInterface() {
+        // Verify that Account implements AccountService interface
+        assertTrue(account instanceof AccountService);
     }
 }
